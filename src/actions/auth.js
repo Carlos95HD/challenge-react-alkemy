@@ -1,9 +1,10 @@
 import Swal from "sweetalert2";
 import { fetchLogin } from "../helpers/fetch"
 import { types } from "../types/types";
+import { stopLoading } from "./ui";
 
 //Login
-export const startLogin = ( email, password ) => {
+export const startLogin = ( email, password, setLoading ) => {
   return async ( dispatch ) => {
     const resp = await fetchLogin( email , password);
 
@@ -14,8 +15,9 @@ export const startLogin = ( email, password ) => {
       dispatch( login({
         user: email
       }))
-
+      dispatch( stopLoading() )
     } else {
+      dispatch( stopLoading() )
       Swal.fire( 'Error','Email o Password Incorrecto', 'error');
     }
   }
