@@ -1,39 +1,52 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { startLogout } from '../../actions/auth';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
+import { startLogout } from "../../actions/auth";
 
 export const NavBar = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector( state => state.auth );
+  const { user } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
-    dispatch( startLogout() );
-  }
+    dispatch(startLogout());
+  };
 
   return (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <NavLink className="navbar-brand" href="#">Hidden brand</NavLink>
-      <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li className="nav-item active">
-          <NavLink className="nav-link" href="#">Home <span className="sr-only">(current)</span></NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" href="#">Link</NavLink>
-        </li>
-      </ul>
-      <span className='text-light nav-link'>{ user }</span>
-      <button 
-        className="btn btn-primary"
-        onClick={ handleLogout }
-        >
-        Logout
-      </button>
-    </div>
-  </nav>
-  )
-}
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <Link className="navbar-brand" to="/">
+        Menu App
+      </Link>
+
+      <div className="navbar-collapse">
+        <div className="navbar-nav">
+          <NavLink
+            className={({ isActive }) =>
+              "nav-item nav-link " + (isActive ? "active" : "")
+            }
+            to="/"
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              "nav-item nav-link " + (isActive ? "active" : "")
+            }
+            to="/about"
+          >
+            Search
+          </NavLink>
+        </div>
+      </div>
+
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
+        <ul className="navbar-nav ml-auto">
+          <span className="nav-item nav-link text-info">{user}</span>
+          <button className="nav-item nav-link btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </ul>
+      </div>
+    </nav>
+  );
+};
