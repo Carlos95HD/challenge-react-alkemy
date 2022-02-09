@@ -1,12 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { LoginScreen } from './components/login/LoginScreen';
+import { AppRouter } from './routers/AppRouter';
 import { store } from './store/store';
 
 export const MenuApp = () => {
   return (
     <Provider store={ store }>
-      <LoginScreen />
+      <AppRouter />
     </Provider>
   )
 };

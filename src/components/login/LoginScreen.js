@@ -1,14 +1,31 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { startLogin } from "../../actions/auth";
+import { useForm } from "../../hooks/useForm";
 
 import "./loginScreen.css";
 
+const initialState = {
+  email:process.env.REACT_APP_LOGINEMAIL,
+  password:process.env.REACT_APP_LOGINPASSWORD
+}
+
 export const LoginScreen = () => {
+
+  const dispatch = useDispatch();
+  const [formValues, handleInputChange] = useForm(initialState);
+  const { email , password } = formValues
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch( startLogin( email, password) )
+  }
+
   return (
-    <div className="login-clean container">
-      <form method="post">
-        <h2 className="sr-only">Login Form</h2>
+    <div className="login-dark">
+      <form onSubmit={ handleSubmit }>
         <div className="illustration">
-          <i className="icon ion-ios-navigate"></i>
+          <i className="icon ion-ios-locked-outline"></i>
         </div>
         <div className="form-group">
           <input
@@ -17,6 +34,8 @@ export const LoginScreen = () => {
             type="email"
             name="email"
             placeholder="Email"
+            value={ email }
+            onChange={ handleInputChange }
           />
         </div>
         <div className="form-group">
@@ -25,11 +44,13 @@ export const LoginScreen = () => {
             type="password"
             name="password"
             placeholder="Password"
+            value={ password }
+            onChange={ handleInputChange }
           />
         </div>
         <div className="form-group">
-          <button className="btn btn-primary btn-block" type="submit">
-            Log In
+          <button className="btn btn-primary btn-block">
+            Enviar
           </button>
         </div>
       </form>
