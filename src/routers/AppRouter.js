@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { startChecking } from '../actions/auth';
 import { LoginScreen } from '../components/login/LoginScreen';
-import { MenuScreen } from '../components/menu/MenuScreen';
+import { DashboardRoutes } from './DashboardRoutes';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 
@@ -34,10 +34,10 @@ export const AppRouter = () => {
         />
 
         <Route  
-          path="/"
+          path="/*"
           element={
             <PrivateRoute user={ user } token= {!!token}>
-              <MenuScreen />
+              <DashboardRoutes />
             </PrivateRoute>
           }
         />

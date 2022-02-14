@@ -4,6 +4,10 @@ export const types = {
 
   authLogin : '[auth] Login',
   authLogout : '[auth] Logout',
-
   authCheckingFinish: '[auth] Finish checking login state',
+
+  platoSearch : '[plato] Buscar plato',
+  
+  menuAddNew : '[menu] Añadir plato',
+  menuDelete : '[menu] Eliminar plato'
 }

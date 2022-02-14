@@ -23,7 +23,7 @@ export const NavBar = () => {
             className={({ isActive }) =>
               "nav-item nav-link " + (isActive ? "active" : "")
             }
-            to="/"
+            to="/home"
           >
             Home
           </NavLink>
@@ -32,7 +32,7 @@ export const NavBar = () => {
             className={({ isActive }) =>
               "nav-item nav-link " + (isActive ? "active" : "")
             }
-            to="/about"
+            to="/search"
           >
             Search
           </NavLink>
