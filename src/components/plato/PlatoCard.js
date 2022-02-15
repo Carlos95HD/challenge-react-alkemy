@@ -11,13 +11,14 @@ export const PLatoCard = ({ id, title, image }) => {
   const { menuList } = useSelector((state) => state.menu);
   const [inMenu, setInMenu] = useState(false);
 
+  //FIXME:
   useEffect(() => {
     menuList.map( item => {
       if (item?.id === id) {
         setInMenu( true );
       }
     });
-  }, [menuList]);
+  }, [menuList, id]);
 
   const handleAdd = () => {
     dispatch(startAddToMenu({ id, title, image }));
