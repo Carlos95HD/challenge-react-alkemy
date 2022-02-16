@@ -9,5 +9,6 @@ export const types = {
   platoSearch : '[plato] Buscar plato',
   
   menuAddNew : '[menu] Añadir plato',
-  menuDelete : '[menu] Eliminar plato'
+  menuDelete : '[menu] Eliminar plato',
+  menuTotalUpdate : '[menu] Average/Total Updated'
 }

@@ -2,6 +2,7 @@ import { types } from "../types/types";
 
 const initialState = {
   menuList: [],
+  menuAverage: {}
 }
 
 export const menuReducer = (state = initialState, action) => {
@@ -17,6 +18,12 @@ export const menuReducer = (state = initialState, action) => {
       return {
         ...state,
         menuList: state.menuList.filter( p => ( p.id !== action.payload.id ) )
+      }
+
+    case types.menuTotalUpdate:
+      return {
+        ...state,
+        menuAverage: action.payload
       }
 
     default:
