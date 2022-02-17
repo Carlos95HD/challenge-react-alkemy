@@ -5,7 +5,6 @@ import { PLatoCard } from "../plato/PlatoCard";
 import { MenuStats } from "./MenuStats";
 
 export const Home = () => {
-  // const dispatch = useDispatch();
   const { menuList } = useSelector((state) => state.menu);
 
   return (

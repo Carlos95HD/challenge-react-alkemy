@@ -22,6 +22,7 @@ export const PlatoScreen = () => {
     readyInMinutes,
     servings,
     pricePerServing,
+    vegan,
   } = plato;
 
   const handleReturn = () => {
@@ -45,6 +46,7 @@ export const PlatoScreen = () => {
           <li className="list-group-item">Healt Score: {healthScore}</li>
           <li className="list-group-item">Ready in: {readyInMinutes} min.</li>
           <li className="list-group-item">Servings: {servings}</li>
+          <li className="list-group-item">Vegan: { vegan ? 'Yes': 'No'}</li>
           <li className="list-group-item list-group-item-info">
             Price per Serving: <span>$</span>
             {pricePerServing}

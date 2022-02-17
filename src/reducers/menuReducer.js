@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-  menuList: [],
+  menuList: JSON.parse(localStorage.getItem('menuList')) || [],
   menuAverage: {}
 }
 

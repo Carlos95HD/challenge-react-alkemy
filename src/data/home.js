@@ -13,6 +13,7 @@ export const homedb = [
     "readyInMinutes": 45,
     "servings": 2,
     "pricePerServing": 274.82,
+    "vegan": true,
 },
 {
     "id": 511728,
@@ -28,6 +29,7 @@ export const homedb = [
     "readyInMinutes": 70,
     "servings": 4,
     "pricePerServing": 150.00,
+    "vegan": true,
 },
 {
     "id": 654812,
@@ -43,6 +45,7 @@ export const homedb = [
     "readyInMinutes": 45,
     "servings": 4,
     "pricePerServing": 70.82,
+    "vegan": false,
 },
 {
     "id": 654857,
@@ -58,6 +61,7 @@ export const homedb = [
     "readyInMinutes": 50,
     "servings": 3,
     "pricePerServing": 166.82,
+    "vegan": false,
 },
 {
     "id": 654883,
@@ -73,6 +77,7 @@ export const homedb = [
     "readyInMinutes": 75,
     "servings": 2,
     "pricePerServing": 300.82,
+    "vegan": true,
 },
 {
     "id": 654928,
@@ -88,6 +93,7 @@ export const homedb = [
     "readyInMinutes": 45,
     "servings": 4,
     "pricePerServing": 87.82,
+    "vegan": false,
 },
 {
     "id": 654926,
@@ -103,6 +109,7 @@ export const homedb = [
     "readyInMinutes": 45,
     "servings": 4,
     "pricePerServing": 100.82,
+    "vegan": true,
 },
 {
     "id": 654944,
@@ -118,6 +125,7 @@ export const homedb = [
     "readyInMinutes": 45,
     "servings": 2,
     "pricePerServing": 240.82,
+    "vegan": false,
 },
 {
     "id": 654905,
@@ -133,5 +141,6 @@ export const homedb = [
     "readyInMinutes": 60,
     "servings": 2,
     "pricePerServing": 280.82,
+    "vegan": false,
 }
 ];
