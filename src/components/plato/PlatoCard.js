@@ -13,7 +13,7 @@ export const PLatoCard = ({ id, title, image }) => {
 
   //FIXME:
   useEffect(() => {
-    menuList.map( item => {
+    menuList.forEach( item => {
       if (item?.id === id) {
         setInMenu( true );
       }
@@ -39,7 +39,7 @@ export const PLatoCard = ({ id, title, image }) => {
         <div className="card-heading">{title}</div>
         {
           inMenu 
-          ? <Link className="btn btn-primary m-2" to={`/plato/${id}`}>
+          ? <Link className="btn btn-info m-2" to={`/plato/${id}`}>
               {""}
               Detalle
             </Link>
