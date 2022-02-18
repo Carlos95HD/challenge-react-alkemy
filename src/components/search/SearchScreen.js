@@ -15,7 +15,7 @@ export const SearchScreen = () => {
 
   return (
     <div className='grid'>
-      <h3 className="mt-5">Busqueda</h3>
+      <h3 className="mt-5">Buscador de platos</h3>
       <hr />
       <Formik
         initialValues={{search : ''}}
@@ -39,7 +39,6 @@ export const SearchScreen = () => {
                 autoComplete='off'
                 name="search"
                 type="text"
-                placeholder="Buscar"
               />
               <button
                 className="btn btn-outline-primary my-2 my-sm-0 mr-2"

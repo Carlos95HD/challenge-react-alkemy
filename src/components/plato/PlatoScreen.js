@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { convertCentToDollar } from "../../helpers/convertCentToDollar";
 import { getPlatoById } from "../../selectors/getPlatoById";
 
 import "./plato.css";
@@ -17,13 +18,15 @@ export const PlatoScreen = () => {
   const {
     title,
     image,
-    winePairing,
     healthScore,
     readyInMinutes,
     servings,
     pricePerServing,
     vegan,
+    summary,
   } = plato;
+
+  const priceDollar = convertCentToDollar(pricePerServing);
 
   const handleReturn = () => {
     navigate(-1);
@@ -39,17 +42,20 @@ export const PlatoScreen = () => {
         </div>
 
         <div>
-          <h3>Additional Information</h3>
-          <p>Description: {winePairing.pairingText}</p>
+          {/* <h3>Additional Information</h3> */}
+          <div
+            className="bg-light mt-2 p-2 rounded"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
         </div>
         <ul className="list-group">
           <li className="list-group-item">Healt Score: {healthScore}</li>
           <li className="list-group-item">Ready in: {readyInMinutes} min.</li>
           <li className="list-group-item">Servings: {servings}</li>
-          <li className="list-group-item">Vegan: { vegan ? 'Yes': 'No'}</li>
+          <li className="list-group-item">Vegan: {vegan ? "Yes" : "No"}</li>
           <li className="list-group-item list-group-item-info">
             Price per Serving: <span>$</span>
-            {pricePerServing}
+            {priceDollar}
           </li>
         </ul>
       </div>

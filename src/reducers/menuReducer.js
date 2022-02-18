@@ -17,7 +17,7 @@ export const menuReducer = (state = initialState, action) => {
     case types.menuDelete:
       return {
         ...state,
-        menuList: state.menuList.filter( p => ( p.id !== action.payload.id ) )
+        menuList: state.menuList.filter( p => ( p.id !== action.payload ) )
       }
 
     case types.menuTotalUpdate:

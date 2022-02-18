@@ -21,11 +21,11 @@ export const PLatoCard = ({ id, title, image }) => {
   }, [menuList, id]);
 
   const handleAdd = () => {
-    dispatch(startAddToMenu({ id, title, image }));
+    dispatch(startAddToMenu( id ));
   };
 
   const handleDelete = () => {
-    dispatch(startDeleteToMenu({ id, title, image }));
+    dispatch(startDeleteToMenu( id ));
     setInMenu(false)
   };
 

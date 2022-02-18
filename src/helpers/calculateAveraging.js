@@ -5,7 +5,7 @@ export const calculateAveraging = (menuList) => {
     readyInMinutesAvg: 0,
   };
 
-  menuList.map((plato) => {
+  menuList.forEach((plato) => {
     total.totalPrice += plato.pricePerServing * plato.servings;
     total.totalHealthScore += plato.healthScore;
     total.readyInMinutesAvg += plato.readyInMinutes;

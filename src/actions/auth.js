@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
-import { fetchLogin } from "../helpers/fetch"
+import { fetchLogin } from "../api/auth";
 import { types } from "../types/types";
 import { stopLoading } from "./ui";
 
 //Login
-export const startLogin = ( email, password, setLoading ) => {
+export const startLogin = ( email, password ) => {
   return async ( dispatch ) => {
     const resp = await fetchLogin( email , password);
 

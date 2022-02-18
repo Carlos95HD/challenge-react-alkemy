@@ -1,21 +1,16 @@
-// import { fetchProduct } from "../helpers/fetch";
-import { platos } from "../data/search";
 import { types } from "../types/types"
+import { searchRecipes } from "../api/axios";
 
 
-export const searchPlato = () => {
+export const searchPlato = ( search ) => {
   return async (dispatch) => {
-    // const resp = await fetchProduct( search );
-    // console.log( resp )
+    const resp = await searchRecipes( search );
 
-    // if (resp.status === 200) {
-    //   const { results } = resp.data;
-    //   dispatch(listPlato({
-    //     list: results
-    //   }));
-    // }
+    if (resp.status === 200) {
+      const { results } = resp.data;
+      dispatch(listPlato(results));
+    }
 
-    dispatch(listPlato(platos));
   }
 }
 
