@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import { getRecipeInformation } from "../api/axios";
 import { calculateAveraging } from "../helpers/calculateAveraging";
 import { validarPlatos } from "../helpers/validarPlatos";
 import { types } from "../types/types";
@@ -7,26 +6,20 @@ import { types } from "../types/types";
 export const startAddToMenu = ( id ) => {
   return async (dispatch, getState) => {
     const { menuList } = getState().menu;
+    const { platoList } = getState().plato;
 
     if (menuList.length < 4) {
+      const [ platoFiltered ] = platoList.filter( plato => plato.id === id );
 
-      try {
-        const resp = await getRecipeInformation( id );
-        const result = resp.data
+      validarPlatos(menuList, platoFiltered)
+        ? dispatch(addToMenu(platoFiltered))
+        : Swal.fire({
+            title: "Atención",
+            text: "Solo puedes agregar 2 platos al veganos, y 2 que no lo sean.",
+            icon: "info",
+        });
 
-        validarPlatos(menuList, result)
-          ? dispatch(addToMenu(result))
-          : Swal.fire({
-              title: "Atención",
-              text: "Solo puedes agregar 2 platos al veganos, y 2 que no lo sean.",
-              icon: "info",
-          });
-        
-          dispatch(startSyncLocalStorage());
-
-      } catch (error) {
-        console.log( error );
-      }
+        dispatch(startSyncLocalStorage());
 
     } else {
       return Swal.fire({

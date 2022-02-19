@@ -9,22 +9,8 @@ export const searchRecipes = async ( q ) => {
     return await axios.get(url, {
       params: {
         query: q,
-        number: 9,
-        apiKey
-      }
-    });
-  } catch (error) {
-    return error;
-  }
-};
-
-export const getRecipeInformation = async ( id ) => {
-
-  const url = `https://api.spoonacular.com/recipes/${ id }/information`;
-  try {
-    return await axios.get(url, {
-      params: {
-        includeNutrition: false,
+        number: 50,
+        addRecipeInformation: true,
         apiKey
       }
     });

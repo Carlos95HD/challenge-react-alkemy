@@ -6,11 +6,12 @@ import { startAddToMenu, startDeleteToMenu } from "../../actions/menu";
 
 import "./plato.css";
 
-export const PLatoCard = ({ id, title, image }) => {
+export const PLatoCard = ({ id, title, image, vegan }) => {
   const dispatch = useDispatch();
   const { menuList } = useSelector((state) => state.menu);
   const [inMenu, setInMenu] = useState(false);
 
+  console.log( vegan )
   //FIXME:
   useEffect(() => {
     menuList.forEach( item => {
@@ -37,8 +38,9 @@ export const PLatoCard = ({ id, title, image }) => {
         </div>
 
         <div className="card-heading">{title}</div>
+        <p className="card-text">Vegan: { vegan ? 'Yes' : 'No'}</p>
         {
-          inMenu 
+          inMenu
           ? <Link className="btn btn-info m-2" to={`/plato/${id}`}>
               {""}
               Detalle
