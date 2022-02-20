@@ -1,6 +1,7 @@
 import { types } from "../types/types"
 import { searchRecipes } from "../api/axios";
 import { startLoading, stopLoading } from "./ui";
+import Swal from "sweetalert2";
 
 
 export const searchPlato = ( search ) => {
@@ -11,8 +12,24 @@ export const searchPlato = ( search ) => {
     if (resp.status === 200) {
       const { results } = resp.data;
 
+      if (results.length > 0) {
+        dispatch(stopLoading());
+        dispatch(listPlato(results));
+      } else {
+        dispatch(stopLoading());
+        Swal.fire(
+          'No hay resultados',
+          'Intente escribiendo otro plato',
+          'info'
+        )
+      }
+    } else {
       dispatch(stopLoading());
-      dispatch(listPlato(results));
+      Swal.fire(
+        'Oops...',
+        'Ha ocurrido un error intentalo de nuevo',
+        'error'
+      )
     }
 
   }
