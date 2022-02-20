@@ -11,7 +11,6 @@ export const PLatoCard = ({ id, title, image, vegan }) => {
   const { menuList } = useSelector((state) => state.menu);
   const [inMenu, setInMenu] = useState(false);
 
-  console.log( vegan )
   //FIXME:
   useEffect(() => {
     menuList.forEach( item => {
@@ -31,7 +30,7 @@ export const PLatoCard = ({ id, title, image, vegan }) => {
   };
 
   return (
-    <div className="col-md-3 mt-2">
+    <div className="col-md-3 mt-2 animate__animated animate__fadeIn">
       <div className="card-sl">
         <div className="card-image">
           <img src={image} alt="plato" />

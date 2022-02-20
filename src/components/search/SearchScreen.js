@@ -1,9 +1,10 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { searchPlato } from "../../actions/plato";
 import { PLatoCard } from "../plato/PlatoCard";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { SearchLoading } from "./SearchLoading";
 
 export const SearchScreen = () => {
   const dispatch = useDispatch();
@@ -79,22 +80,17 @@ export const SearchScreen = () => {
           </Form>
         )}
       </Formik>
-      {/* Loading */}
-      {loading ? (
-        <div className="row align-items-center" style={{height:500}}>
-          <div class="spinner-border text-primary text-center mx-auto" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      ) : (
-        <div className="row mt-4">
+      {/* Loading - Results */}
+      {loading 
+      ? <SearchLoading />
+      : <div className="row mt-4">
           {filteredRecipes().map((plato) => (
             <PLatoCard key={plato.id} {...plato} />
           ))}
         </div>
-      )}
+      }
 
-      {/* buttons */}
+      {/* Btn Next - Prev */}
       {platoList.length > 0 && (
         <div className="my-3">
           <button className="btn btn-primary" onClick={prevPage}>

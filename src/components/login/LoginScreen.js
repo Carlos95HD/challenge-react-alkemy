@@ -44,7 +44,7 @@ export const LoginScreen = () => {
     >
       {({ errors }) => (
         <div className="login-dark text-center">
-          <Form>
+          <Form className="animate__animated animate__fadeIn">
             <div className="illustration">
               <i className="icon ion-ios-locked-outline"></i>
             </div>
