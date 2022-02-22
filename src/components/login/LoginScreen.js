@@ -9,11 +9,11 @@ import "./loginScreen.css";
 
 export const LoginScreen = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector( state => state.ui)
+  const { loading } = useSelector((state) => state.ui);
 
   const handleSubmit = ({ email, password }) => {
-    dispatch( startLoading() );
-    dispatch( startLogin( email, password ) );
+    dispatch(startLoading());
+    dispatch(startLogin(email, password));
   };
 
   return (
@@ -43,50 +43,62 @@ export const LoginScreen = () => {
       onSubmit={handleSubmit}
     >
       {({ errors }) => (
-        <div className="login-dark text-center">
-          <Form className="animate__animated animate__fadeIn">
-            <div className="illustration">
-              <i className="icon ion-ios-locked-outline"></i>
-            </div>
+        <div className="container-fluid min-vh-100 row mx-auto">
+          <div className="login-section-wrapper m-auto">
+            <div className="login-wrapper animate__animated animate__fadeIn">
+              <h1 className="login-title">Log in</h1>
 
-            <div className="form-group">
-              <Field
-                className="form-control"
-                autoComplete="off"
-                type="email"
-                name="email"
-                placeholder="Email"
-              />
-              <ErrorMessage
-                name="email"
-                component={() => (
-                  <div className="text-danger">{errors.email}</div>
-                )}
-              />
+              <Form>
+                <div className="form-group">
+                  <label>Email</label>
+                  <Field
+                    autoComplete="off"
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="form-control"
+                    placeholder="email@example.com"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component={() => (
+                      <div className="text-danger">{errors.email}</div>
+                    )}
+                  />
+                </div>
+                <div className="form-group mb-4">
+                  <label>Password</label>
+                  <Field
+                    type="password"
+                    name="password"
+                    id="password"
+                    className="form-control"
+                    placeholder="enter your passsword"
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component={() => (
+                      <div className="text-danger">{errors.password}</div>
+                    )}
+                  />
+                </div>
+                <button
+                  id="login"
+                  className={`btn btn-block login-btn ${
+                    loading ? "not-allowed" : ""
+                  }`}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Login
+                </button>
+              </Form>
+              <div className="text-center">{loading && <Spinner />}</div>
             </div>
-            <div className="form-group">
-              <Field
-                className="form-control"
-                type="password"
-                name="password"
-                placeholder="Password"
-              />
-              <ErrorMessage
-                name="password"
-                component={() => (
-                  <div className="text-danger">{errors.password}</div>
-                )}
-              />
-            </div>
-            <div className="form-group">
-              <button type="submit" className="btn btn-primary btn-block">
-                Enviar
-              </button>
-            </div>
-          { loading && <Spinner /> }
-          </Form>
+          </div>
         </div>
       )}
     </Formik>
+
   );
 };

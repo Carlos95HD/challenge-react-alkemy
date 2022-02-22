@@ -30,9 +30,9 @@ export const PLatoCard = ({ id, title, image, vegan }) => {
   };
 
   return (
-    <div className="col-md-3 mt-2 animate__animated animate__fadeIn">
+    <div className="col-10 mx-auto mx-sm-0 mt-3 animate__animated animate__fadeIn">
       <div className="card-sl">
-        <div className="card-image">
+        <div className="card-image img-fluid">
           <img src={image} alt="plato" />
         </div>
 
@@ -40,14 +40,13 @@ export const PLatoCard = ({ id, title, image, vegan }) => {
         <p className="card-text">Vegan: { vegan ? 'Yes' : 'No'}</p>
         {
           inMenu
-          ? <Link className="btn btn-info m-2" to={`/plato/${id}`}>
+          ? <Link className="btn btn-outline-info m-2" to={`/plato/${id}`}>
               {""}
               Detalle
             </Link>
           : <button
-              className="btn btn-primary m-2"
+              className="btn btn-outline-primary m-2"
               onClick={handleAdd}
-              // disabled={inMenu}
             >
               Add to menu
             </button>

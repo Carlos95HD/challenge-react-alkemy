@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+html, body {
+  /* height: 100vh; */
+  font-family: 'Karla', sans-serif;
+}
+
+#wrap {
+  min-height: 80vh;
+  height: auto !important;
+  height: 100%;
+  /* margin: 0 auto -60px; */
+}
+
+.form-control {
+  border: none;
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 0;
+  padding: 9px 5px;
+  min-height: 40px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.form-control::-webkit-input-placeholder {
+  color: #b0adad;
+}
+.form-control::-moz-placeholder {
+  color: #b0adad;
+}
+.form-control:-ms-input-placeholder {
+  color: #b0adad;
+}
+.form-control::-ms-input-placeholder {
+  color: #b0adad;
+}
+.form-control::placeholder {
+  color: #b0adad;
+}
+
+.color-light-yellow {
+  background-color:#FEEABE;
+}
+
+.dropdown-menu{
+  right: 0;
+  left: auto;
+}
+
+.custom-btn-warning {
+  background-color: #fdbb28;
+  border-radius: 0;
+  font-weight: bold;
+  color: #fff;
+}
+.custom-btn-warning:hover {
+  border: 1px solid #fdbb28;
+  background-color: #fff;
+  color: #fdbb28;
+}

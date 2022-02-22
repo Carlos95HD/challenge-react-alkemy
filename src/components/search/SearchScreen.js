@@ -51,16 +51,16 @@ export const SearchScreen = () => {
         onSubmit={handleSubmit}
       >
         {({ errors }) => (
-          <Form className="my-2 my-lg-0">
+          <Form className="my-2 my-lg-0 animate__animated animate__fadeIn">
             <div className="form-inline">
               <Field
-                className="form-control mr-sm-2"
+                className="form-control mr-sm-2 outline-warning"
                 autoComplete="off"
                 name="search"
                 type="text"
               />
               <button
-                className="btn btn-outline-primary my-2 my-sm-0 mr-2"
+                className="btn custom-btn-warning p-2 my-2 my-sm-0 mr-2"
                 type="submit"
               >
                 Buscar
@@ -83,7 +83,7 @@ export const SearchScreen = () => {
       {/* Loading - Results */}
       {loading 
       ? <SearchLoading />
-      : <div className="row mt-4">
+      : <div className="m-0 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-4 mt-4 text-center text-sm-left">
           {filteredRecipes().map((plato) => (
             <PLatoCard key={plato.id} {...plato} />
           ))}
@@ -93,12 +93,12 @@ export const SearchScreen = () => {
       {/* Btn Next - Prev */}
       {platoList.length > 0 && (
         <div className="my-3">
-          <button className="btn btn-primary" onClick={prevPage}>
+          <button className="btn custom-btn-warning" onClick={prevPage}>
             <AiOutlineLeft />
             Previous
           </button>
           &nbsp;
-          <button className="btn btn-primary" onClick={nextPage}>
+          <button className="btn custom-btn-warning" onClick={nextPage}>
             Next
             <AiOutlineRight />
           </button>

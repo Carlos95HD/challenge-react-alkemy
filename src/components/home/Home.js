@@ -8,25 +8,25 @@ export const Home = () => {
   const { menuList } = useSelector((state) => state.menu);
 
   return (
-    <div>
-      <h3 className="mt-5">Menú</h3>
+    <div className="m-0 text-center text-sm-left">
+      <h3 className="mt-5 col col-sm-12">Menú</h3>
       <hr />
       {menuList.length === 0 ? (
-        <div>
-          <div className="alert alert-info" role="alert">
+        <div className="col-12 animate__animated animate__fadeIn">
+          <p className="alert color-light-yellow text-muted" role="alert">
             No hay platos agregado al menú agregue uno{" "}
-            <NavLink to="/search"> aquí </NavLink>
-          </div>
+            <NavLink to="/search"> aquí. </NavLink>
+          </p>
         </div>
       ) : (
         <div>
-          <div className="row mt-4">
+          <div className="m-0 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-4">
             {menuList.map((plato) => (
               <PLatoCard key={plato.id} {...plato} />
             ))}
           </div>
           {/* Promedios y acumulativos */}
-          <div className="w-25 mt-4">
+          <div className="mt-4">
             <MenuStats />
           </div>
         </div>
