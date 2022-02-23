@@ -49,7 +49,7 @@ export const PlatoScreen = () => {
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         </div>
-        <ul className="list-group list-group-flush animate__animated animate__fadeIn">
+        <ul className="list-group list-group-flush animate__animated animate__fadeIn mt-2">
           <li className="list-group-item"><FcLike /> Healt Score: {healthScore}</li>
           <li className="list-group-item"><FcClock /> Ready in: {readyInMinutes} min.</li>
           <li className="list-group-item"><FcInfo/> Servings: {servings}</li>
@@ -62,7 +62,7 @@ export const PlatoScreen = () => {
       </div>
 
       <button className="btn custom-btn-warning mt-2" onClick={handleReturn}>
-        Volver
+        Return
       </button>
     </div>
   );

@@ -21,13 +21,13 @@ export const MenuStats = () => {
       <div className="card-header">Averages</div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">
-        <FcLike /> Puntaje de salud: {totalHealthScore}
+        <FcLike /> Total health score: {totalHealthScore}
         </li>
         <li className="list-group-item">
-        <FcClock /> Tiempo De preparación total: {readyInMinutesAvg} min.
+        <FcClock /> Total preparation time: {readyInMinutesAvg} min.
         </li>
         <li className="list-group-item">
-        <FcPaid/> Precio Total: <span>$</span> {totalPriceDollar}
+        <FcPaid/> Total price: <span>$</span> {totalPriceDollar}
         </li>
       </ul>
     </div>

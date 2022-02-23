@@ -9,13 +9,13 @@ export const Home = () => {
 
   return (
     <div className="m-0 text-center text-sm-left">
-      <h3 className="mt-5 col col-sm-12">Menú</h3>
+      <h3 className="mt-5 col col-sm-12">Menu</h3>
       <hr />
       {menuList.length === 0 ? (
         <div className="col-12 animate__animated animate__fadeIn">
           <p className="alert color-light-yellow text-muted" role="alert">
-            No hay platos agregado al menú agregue uno{" "}
-            <NavLink to="/search"> aquí. </NavLink>
+            There are no dishes added to the menu add one{" "}
+            <NavLink to="/search"> here. </NavLink>
           </p>
         </div>
       ) : (

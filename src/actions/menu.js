@@ -14,8 +14,8 @@ export const startAddToMenu = ( id ) => {
       validarPlatos(menuList, platoFiltered)
         ? dispatch(addToMenu(platoFiltered))
         : Swal.fire({
-            title: "Atención",
-            text: "Solo puedes agregar 2 platos al veganos, y 2 que no lo sean.",
+            title: "Warning",
+            text: "Only 2 dishes can be added to vegans, and 2 that are not.",
             icon: "info",
         });
 
@@ -23,8 +23,8 @@ export const startAddToMenu = ( id ) => {
 
     } else {
       return Swal.fire({
-        title: "Limite Alcanzado!",
-        text: "Solo puedes agregar 4 platos al menú",
+        title: "Limit Reached!",
+        text: "You can only add 4 dishes to the menu.",
         icon: "info",
       });
     }

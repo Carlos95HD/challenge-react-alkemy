@@ -18,7 +18,7 @@ export const startLogin = ( email, password ) => {
       dispatch( stopLoading() )
     } else {
       dispatch( stopLoading() )
-      Swal.fire( 'Error','Email o Password Incorrecto', 'error');
+      Swal.fire( 'Error','Wrong email or password', 'error');
     }
   }
 }

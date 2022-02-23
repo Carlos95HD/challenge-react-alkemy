@@ -11,7 +11,6 @@ export const PLatoCard = ({ id, title, image, vegan }) => {
   const { menuList } = useSelector((state) => state.menu);
   const [inMenu, setInMenu] = useState(false);
 
-  //FIXME:
   useEffect(() => {
     menuList.forEach( item => {
       if (item?.id === id) {
@@ -42,7 +41,7 @@ export const PLatoCard = ({ id, title, image, vegan }) => {
           inMenu
           ? <Link className="btn btn-outline-info m-2" to={`/plato/${id}`}>
               {""}
-              Detalle
+              Details
             </Link>
           : <button
               className="btn btn-outline-primary m-2"

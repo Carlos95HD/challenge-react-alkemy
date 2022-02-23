@@ -18,8 +18,8 @@ export const searchPlato = ( search ) => {
       } else {
         dispatch(stopLoading());
         Swal.fire(
-          'No hay resultados',
-          'Intente escribiendo otro plato',
+          'No results',
+          'Try writing another plate',
           'info'
         )
       }
@@ -27,7 +27,7 @@ export const searchPlato = ( search ) => {
       dispatch(stopLoading());
       Swal.fire(
         'Oops...',
-        'Ha ocurrido un error intentalo de nuevo',
+        'An error has occurred, please try again',
         'error'
       )
     }

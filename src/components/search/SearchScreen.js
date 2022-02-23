@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineRight, AiOutlineSearch} from "react-icons/ai";
 import { searchPlato } from "../../actions/plato";
 import { PLatoCard } from "../plato/PlatoCard";
 import { SearchLoading } from "./SearchLoading";
@@ -34,16 +34,16 @@ export const SearchScreen = () => {
 
   return (
     <div className="grid">
-      <h3 className="mt-5">Buscador de platos</h3>
+      <h3 className="mt-5">Dish finder</h3>
       <hr />
       <Formik
         initialValues={{ search: "" }}
         validate={(values) => {
           let errors = {};
           if (!values.search) {
-            errors.search = "Ingresa un nombre";
+            errors.search = "Enter a name";
           } else if (values.search.length < 2) {
-            errors.search = "Ingrese mas de 2 caracteres";
+            errors.search = "Enter more than 2 characters";
           }
 
           return errors;
@@ -63,7 +63,7 @@ export const SearchScreen = () => {
                 className="btn custom-btn-warning p-2 my-2 my-sm-0 mr-2"
                 type="submit"
               >
-                Buscar
+                <AiOutlineSearch />
               </button>
             </div>
 
