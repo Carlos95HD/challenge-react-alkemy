@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { startChecking } from '../actions/auth';
 import { LoginScreen } from '../components/login/LoginScreen';
+import { LoadingScreen } from '../components/ui/LoadingScreen';
 import { DashboardRoutes } from './DashboardRoutes';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
@@ -17,7 +18,7 @@ export const AppRouter = () => {
   }, [ dispatch ]);
 
   if (checking) {
-    return (<h1>Espere..</h1>);
+    return (<LoadingScreen />);
   }
 
   return (
