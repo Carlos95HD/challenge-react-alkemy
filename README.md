@@ -5,7 +5,7 @@ Aplicación capaz de crear una carta de opciones de menús para un hotel que con
 API externa y mostrará diferentes atributos a nivel individual de cada plato y del menú finalizado.
 ## Available Scripts
 
-### `npm run build`
+### `npm install`
 
 Rebuild node modules
 
