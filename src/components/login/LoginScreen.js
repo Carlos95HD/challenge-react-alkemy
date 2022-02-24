@@ -19,23 +19,23 @@ export const LoginScreen = () => {
   return (
     <Formik
       initialValues={{
-        email: process.env.REACT_APP_LOGINEMAIL,
-        password: process.env.REACT_APP_LOGINPASSWORD,
+        email: '',
+        password: ''
       }}
       validate={(values) => {
         let errors = {};
         //Validaciones Email
         if (!values.email) {
-          errors.email = "Por favor, ingresa un email electronico";
+          errors.email = "Please enter an email.";
         } else if (
           !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)
         ) {
           errors.email =
-            "El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.";
+            "Email can only contain letters, numbers, periods, hyphens, and underscores.";
         }
         //Validaciones Password
         if (!values.password) {
-          errors.password = "Ingrese una contraseña valida";
+          errors.password = "Please enter a valid password";
         }
 
         return errors;
